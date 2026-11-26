@@ -33,3 +33,8 @@ Open [`github-file-sync.html`](./github-file-sync.html) to upload a JSON manifes
 ## Autonomous Software Agent
 
 [`autonomous-agent.html`](./autonomous-agent.html) provides a single flow to submit a software specification, ask Gemini for a JSON file manifest of source files, validate file paths and manifest shape, review/download the output, and publish reviewed files to GitHub after an explicit confirmation. Publishing uses a user-provided repository-scoped token and commits files sequentially. Generated code is not executed and tests/builds are not performed by this page.
+
+
+## Windows Runner / CI Smoke Test
+
+GitHub Actions workflow [`windows-factory-smoke.yml`](./.github/workflows/windows-factory-smoke.yml) runs a static smoke check on a hosted Windows runner after pushes to `main` or on manual dispatch. See [`WINDOWS-RUNNER.md`](./WINDOWS-RUNNER.md). It checks basic HTML/title structure only; it is not browser testing or a Windows build.
