@@ -45,7 +45,7 @@ jobs:
         if: inputs.project_type == 'node'
         run: |
           node -e "const p=require('./package.json'); if(!p.scripts || !p.scripts.test) { console.log('No test script defined'); process.exit(2); }"
-          npm test -- --runInBand
+          npm test
       - name: Install Python dependencies
         if: inputs.project_type == 'python' && hashFiles('requirements.txt') != ''
         run: python -m pip install -r requirements.txt
