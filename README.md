@@ -58,3 +58,8 @@ Open [`auto-fix-engine.html`](./auto-fix-engine.html) to send pasted test logs a
 ## Factory Control Center
 
 Launch [`factory-control-center.html`](./factory-control-center.html) to access the module shortcuts and a browser-local project checklist. Notes/checklist are stored in the browser and are not synced. Guide: [`CONTROL-CENTER.md`](./CONTROL-CENTER.md).
+
+
+## One-Click Project Creator
+
+Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to turn a brief into a reviewed source-file manifest, test-plan file, downloads, or sequential GitHub publishing. See [`ONE-CLICK-CREATOR.md`](./ONE-CLICK-CREATOR.md). It requires a Gemini API key and optional repository-scoped GitHub token; files are not executed or tested automatically.
