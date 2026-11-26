@@ -83,3 +83,8 @@ Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to t
 ## Project Remote Test Runner
 
 Open [project-test-runner.html](./project-test-runner.html) for instructions and launch the manually dispatched GitHub Actions workflow. It supports static HTML validation, Node.js tests, and Python unittest discovery, with a report artifact. It does not run until manually dispatched. See [PROJECT-REMOTE-TEST-RUNNER.md](./PROJECT-REMOTE-TEST-RUNNER.md). Node/Python modes execute repository code on GitHub-hosted runners; run only trusted code.
+
+
+## CI Failure Analyzer
+
+Open [ci-failure-analyzer.html](./ci-failure-analyzer.html) to classify pasted GitHub Actions logs, download an analysis report, or request optional Gemini diagnosis. The remote test runner now uploads captured test output and an exit-code file as an artifact even when tests fail. See [CI-FAILURE-ANALYZER.md](./CI-FAILURE-ANALYZER.md). AI diagnosis sends the pasted log to Google's Gemini API; remove secrets and personal data first. Suggested fixes are not applied automatically.
