@@ -5,7 +5,7 @@ const pages = readdirSync('.').filter(name => name.toLowerCase().endsWith('.html
 
 test('all root HTML pages exist', async () => {
   expect(pages.length).toBeGreaterThan(0);
-  for (const page of pages) expect(existsSync(page), page).toBeTruthy();
+  for (const file of pages) expect(existsSync(file), file).toBeTruthy();
 });
 
 test('main dashboard loads', async ({ page }) => {
@@ -16,11 +16,11 @@ test('main dashboard loads', async ({ page }) => {
 
 test('every factory page renders without uncaught page errors', async ({ page }) => {
   const errors = [];
-  page.on('pageerror', error => errors.push(error.message));
+  page.on('pageerror', error => errors.push(`${new URL(page.url()).pathname}: ${error.message}`));
   for (const file of pages) {
     const response = await page.goto('http://127.0.0.1:4173/' + encodeURIComponent(file));
     expect(response && response.ok(), file + ' should return HTTP 200').toBeTruthy();
     await expect(page.locator('body'), file).not.toBeEmpty();
   }
-  expect(errors, errors.join('\n')).toEqual([]);
+  expect(errors, errors.join('\\n')).toEqual([]);
 });
