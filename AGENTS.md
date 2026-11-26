@@ -1,0 +1,1 @@
+AI agent rules: inspect repo before edits; use small reviewable changes; preserve files; keep secrets out of commits; never run generated commands, installations, deployments or destructive operations without explicit approval; report test results honestly; require human approval for consequential actions.
