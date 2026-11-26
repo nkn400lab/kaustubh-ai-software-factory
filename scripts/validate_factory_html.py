@@ -40,7 +40,8 @@ def main():
             continue
         if not parser.html: failures.append(f"No <html> tag: {name}")
         if not parser.title or not parser.title_text: failures.append(f"Missing populated <title>: {name}")
-        if parser.html and parser.title and parser.title_text:\n            print(f"PASS: {name}")
+        if parser.html and parser.title and parser.title_text:
+            print(f"PASS: {name}")
     if failures:
         print("\n".join(failures))
         raise SystemExit(1)
