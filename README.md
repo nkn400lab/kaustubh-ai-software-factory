@@ -53,3 +53,8 @@ Run [`browser-test-agent.html`](./browser-test-agent.html) to submit logs or sni
 ## Auto Fix Engine
 
 Open [`auto-fix-engine.html`](./auto-fix-engine.html) to send pasted test logs and optional code/context to Gemini for a diagnosis and unified-diff patch proposal. Review and apply patches manually, then rerun CI. The prototype does not fetch logs, apply changes, execute code, or trigger builds. Guide: [`AUTO-FIX-ENGINE.md`](./AUTO-FIX-ENGINE.md).
+
+
+## Factory Control Center
+
+Launch [`factory-control-center.html`](./factory-control-center.html) to access the module shortcuts and a browser-local project checklist. Notes/checklist are stored in the browser and are not synced. Guide: [`CONTROL-CENTER.md`](./CONTROL-CENTER.md).
