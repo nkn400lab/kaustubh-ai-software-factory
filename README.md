@@ -23,3 +23,8 @@ Open [`test-repair-lab.html`](./test-repair-lab.html) for AI test-plan creation,
 ## Windows Build Kit
 
 [`windows-build-kit.html`](./windows-build-kit.html) creates packaging blueprints, commented build-script suggestions, and checklists for Windows/portable/installer/Electron/Python/Web/Android projects. It does not run scripts or verify actual builds; inspect outputs before executing locally.
+
+
+## GitHub File Sync
+
+Open [`github-file-sync.html`](./github-file-sync.html) to upload a JSON manifest of files to a repository using a user-provided fine-grained GitHub token (repository Contents read/write). The token is not saved by the page. Uploads are sequential, separate commits, and existing paths are updated. Use a repository-scoped token, inspect the file list before upload, and revoke the token when done. This is a browser-based helper, not a persistent secret vault.
