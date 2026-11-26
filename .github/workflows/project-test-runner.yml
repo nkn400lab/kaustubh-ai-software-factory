@@ -1,0 +1,69 @@
+name: Project Remote Test Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_type:
+        description: Project test mode
+        required: true
+        type: choice
+        options:
+          - static-html
+          - node
+          - python
+        default: static-html
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        if: inputs.project_type == 'static-html' || inputs.project_type == 'python'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        if: inputs.project_type == 'node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Run static HTML validation
+        if: inputs.project_type == 'static-html'
+        run: |
+          python -m py_compile scripts/validate_factory_html.py
+          python scripts/validate_factory_html.py
+      - name: Install Node dependencies
+        if: inputs.project_type == 'node' && hashFiles('package-lock.json') != ''
+        run: npm ci
+      - name: Run Node tests
+        if: inputs.project_type == 'node'
+        run: |
+          node -e "const p=require('./package.json'); if(!p.scripts || !p.scripts.test) { console.log('No test script defined'); process.exit(2); }"
+          npm test -- --runInBand
+      - name: Install Python dependencies
+        if: inputs.project_type == 'python' && hashFiles('requirements.txt') != ''
+        run: python -m pip install -r requirements.txt
+      - name: Run Python unit tests
+        if: inputs.project_type == 'python'
+        run: python -m unittest discover -v
+      - name: Write run report
+        if: always()
+        run: |
+          mkdir -p test-report
+          echo 'Project test runner' > test-report/summary.txt
+          echo 'Selected mode: ${{ inputs.project_type }}' >> test-report/summary.txt
+          echo "Commit: $GITHUB_SHA" >> test-report/summary.txt
+          echo 'Inspect the job conclusion in the Actions UI.' >> test-report/summary.txt
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-test-report
+          path: test-report/
+          if-no-files-found: warn
