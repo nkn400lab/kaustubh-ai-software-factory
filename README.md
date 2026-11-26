@@ -73,3 +73,8 @@ Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to t
 ## AI Development Engine
 
 [`ai-development-engine.html`](./ai-development-engine.html) imports source text or manifests, produces AI change plans and revised file proposals, generates changelogs, and exports or publishes reviewed files. Guide: [`AI-DEVELOPMENT-ENGINE.md`](./AI-DEVELOPMENT-ENGINE.md). Proposed code is not executed or automatically tested.
+
+
+## QA Repair Release Hub
+
+[`qa-repair-release-hub.html`](./qa-repair-release-hub.html) includes heuristic scans for pasted text, issue checklist generation, version bump suggestions and release files, plus optional GitHub publishing. See [`QA-REPAIR-RELEASE-HUB.md`](./QA-REPAIR-RELEASE-HUB.md). It does not run tests or establish release readiness.
