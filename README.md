@@ -43,3 +43,8 @@ GitHub Actions workflow [`windows-factory-smoke.yml`](./.github/workflows/window
 ## Automatic Windows Source Package Builder
 
 [`package-builder.html`](./package-builder.html) links to the Windows packaging workflow. The workflow [`windows-package.yml`](./.github/workflows/windows-package.yml) creates a ZIP source snapshot as a downloadable GitHub Actions artifact. It is not an EXE compiler. Instructions: [`PACKAGE-BUILDER.md`](./PACKAGE-BUILDER.md).
+
+
+## Browser Testing & Repair Advisor
+
+Run [`browser-test-agent.html`](./browser-test-agent.html) to submit logs or snippets for Gemini diagnosis and a reviewed patch suggestion (it does not apply changes or execute code). Playwright smoke tests are in [`tests/browser-smoke.spec.js`](./tests/browser-smoke.spec.js), run by [`browser-test.yml`](./.github/workflows/browser-test.yml) on relevant pushes or manual dispatch. Details: [`BROWSER-TESTING.md`](./BROWSER-TESTING.md).
