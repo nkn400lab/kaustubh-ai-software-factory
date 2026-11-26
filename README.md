@@ -78,3 +78,8 @@ Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to t
 ## QA Repair Release Hub
 
 [`qa-repair-release-hub.html`](./qa-repair-release-hub.html) includes heuristic scans for pasted text, issue checklist generation, version bump suggestions and release files, plus optional GitHub publishing. See [`QA-REPAIR-RELEASE-HUB.md`](./QA-REPAIR-RELEASE-HUB.md). It does not run tests or establish release readiness.
+
+
+## Project Remote Test Runner
+
+Open [project-test-runner.html](./project-test-runner.html) for instructions and launch the manually dispatched GitHub Actions workflow. It supports static HTML validation, Node.js tests, and Python unittest discovery, with a report artifact. It does not run until manually dispatched. See [PROJECT-REMOTE-TEST-RUNNER.md](./PROJECT-REMOTE-TEST-RUNNER.md). Node/Python modes execute repository code on GitHub-hosted runners; run only trusted code.
