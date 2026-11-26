@@ -18,3 +18,8 @@ Open [`code-studio.html`](./code-studio.html) to generate downloadable project f
 ## Test & Repair Lab
 
 Open [`test-repair-lab.html`](./test-repair-lab.html) for AI test-plan creation, code/error diagnosis, and basic heuristic static checks. It does not execute code or certify security/correctness. Use generated recommendations as review aids.
+
+
+## Windows Build Kit
+
+[`windows-build-kit.html`](./windows-build-kit.html) creates packaging blueprints, commented build-script suggestions, and checklists for Windows/portable/installer/Electron/Python/Web/Android projects. It does not run scripts or verify actual builds; inspect outputs before executing locally.
