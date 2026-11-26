@@ -88,3 +88,8 @@ Open [project-test-runner.html](./project-test-runner.html) for instructions and
 ## CI Failure Analyzer
 
 Open [ci-failure-analyzer.html](./ci-failure-analyzer.html) to classify pasted GitHub Actions logs, download an analysis report, or request optional Gemini diagnosis. The remote test runner now uploads captured test output and an exit-code file as an artifact even when tests fail. See [CI-FAILURE-ANALYZER.md](./CI-FAILURE-ANALYZER.md). AI diagnosis sends the pasted log to Google's Gemini API; remove secrets and personal data first. Suggested fixes are not applied automatically.
+
+
+## AI Auto Repair Integration Hub
+
+Open [ai-auto-repair-integration.html](./ai-auto-repair-integration.html) to analyze pasted CI logs with Gemini, propose a complete replacement for one source file, review/edit it, download a repair report, and optionally commit the reviewed file to GitHub. It does not fetch CI artifacts, execute code, run tests, or dispatch workflows. Remove secrets before sending logs/source to Gemini. See [AI-AUTO-REPAIR-INTEGRATION.md](./AI-AUTO-REPAIR-INTEGRATION.md).
