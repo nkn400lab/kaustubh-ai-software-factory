@@ -103,3 +103,8 @@ Open [ai-project-lifecycle-orchestrator.html](./ai-project-lifecycle-orchestrato
 ## Central Brain — Unified Workspace
 
 Start at [central-brain.html](./central-brain.html) for a searchable launcher to all factory modules, a local project workspace, end-to-end workflow checklist, progress indicator, and JSON import/export. It is a control panel; it does not run code or tests in the background. See [CENTRAL-BRAIN.md](./CENTRAL-BRAIN.md).
+
+
+## Integrated CI pipeline
+
+The main workflow [Factory Integrated CI](.github/workflows/factory-ci.yml) runs on pushes to `main`, pull requests, and manual dispatch. It validates all root HTML pages and local links, runs Playwright Chromium smoke tests across all root pages, and uploads a source ZIP only after both test jobs pass. Failure reports are uploaded when browser testing fails. See [INTEGRATED-CI.md](./INTEGRATED-CI.md). The ZIP is source code, not an EXE, and passing smoke tests do not certify production readiness.
