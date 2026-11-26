@@ -63,3 +63,8 @@ Launch [`factory-control-center.html`](./factory-control-center.html) to access 
 ## One-Click Project Creator
 
 Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to turn a brief into a reviewed source-file manifest, test-plan file, downloads, or sequential GitHub publishing. See [`ONE-CLICK-CREATOR.md`](./ONE-CLICK-CREATOR.md). It requires a Gemini API key and optional repository-scoped GitHub token; files are not executed or tested automatically.
+
+
+## Factory Pipeline Orchestrator
+
+[`factory-pipeline-orchestrator.html`](./factory-pipeline-orchestrator.html) imports manifests, applies basic quality checks, generates CI workflow templates and release notes, and exports or sequentially publishes reviewed files. Guide: [`PIPELINE-ORCHESTRATOR.md`](./PIPELINE-ORCHESTRATOR.md). Checks are heuristic only; workflow templates may need adaptation.
