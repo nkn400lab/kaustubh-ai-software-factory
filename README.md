@@ -93,3 +93,8 @@ Open [ci-failure-analyzer.html](./ci-failure-analyzer.html) to classify pasted G
 ## AI Auto Repair Integration Hub
 
 Open [ai-auto-repair-integration.html](./ai-auto-repair-integration.html) to analyze pasted CI logs with Gemini, propose a complete replacement for one source file, review/edit it, download a repair report, and optionally commit the reviewed file to GitHub. It does not fetch CI artifacts, execute code, run tests, or dispatch workflows. Remove secrets before sending logs/source to Gemini. See [AI-AUTO-REPAIR-INTEGRATION.md](./AI-AUTO-REPAIR-INTEGRATION.md).
+
+
+## AI Project Lifecycle Orchestrator
+
+Open [ai-project-lifecycle-orchestrator.html](./ai-project-lifecycle-orchestrator.html) to generate up to 12 starter files from a project brief, review/edit them, run basic manifest checks, export a JSON bundle and test plan, or optionally publish reviewed files sequentially to GitHub. It does not execute generated code or run tests. Gemini receives the brief; remove confidential data first. See [AI-PROJECT-LIFECYCLE-ORCHESTRATOR.md](./AI-PROJECT-LIFECYCLE-ORCHESTRATOR.md).
