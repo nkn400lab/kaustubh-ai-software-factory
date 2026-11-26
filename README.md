@@ -13,3 +13,8 @@ Open [`ai-workbench.html`](./ai-workbench.html) in a browser (or download it and
 ## AI Code Studio
 
 Open [`code-studio.html`](./code-studio.html) to generate downloadable project files using Gemini or analyze/debug pasted code. It displays generated files and allows individual downloads or a text bundle. It does not execute generated code. API key is entered in the page and held only in page memory; direct browser API calls may expose it to browser/network inspection and should be used cautiously.
+
+
+## Test & Repair Lab
+
+Open [`test-repair-lab.html`](./test-repair-lab.html) for AI test-plan creation, code/error diagnosis, and basic heuristic static checks. It does not execute code or certify security/correctness. Use generated recommendations as review aids.
