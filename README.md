@@ -28,3 +28,8 @@ Open [`test-repair-lab.html`](./test-repair-lab.html) for AI test-plan creation,
 ## GitHub File Sync
 
 Open [`github-file-sync.html`](./github-file-sync.html) to upload a JSON manifest of files to a repository using a user-provided fine-grained GitHub token (repository Contents read/write). The token is not saved by the page. Uploads are sequential, separate commits, and existing paths are updated. Use a repository-scoped token, inspect the file list before upload, and revoke the token when done. This is a browser-based helper, not a persistent secret vault.
+
+
+## Autonomous Software Agent
+
+[`autonomous-agent.html`](./autonomous-agent.html) provides a single flow to submit a software specification, ask Gemini for a JSON file manifest of source files, validate file paths and manifest shape, review/download the output, and publish reviewed files to GitHub after an explicit confirmation. Publishing uses a user-provided repository-scoped token and commits files sequentially. Generated code is not executed and tests/builds are not performed by this page.
