@@ -38,3 +38,8 @@ Open [`github-file-sync.html`](./github-file-sync.html) to upload a JSON manifes
 ## Windows Runner / CI Smoke Test
 
 GitHub Actions workflow [`windows-factory-smoke.yml`](./.github/workflows/windows-factory-smoke.yml) runs a static smoke check on a hosted Windows runner after pushes to `main` or on manual dispatch. See [`WINDOWS-RUNNER.md`](./WINDOWS-RUNNER.md). It checks basic HTML/title structure only; it is not browser testing or a Windows build.
+
+
+## Automatic Windows Source Package Builder
+
+[`package-builder.html`](./package-builder.html) links to the Windows packaging workflow. The workflow [`windows-package.yml`](./.github/workflows/windows-package.yml) creates a ZIP source snapshot as a downloadable GitHub Actions artifact. It is not an EXE compiler. Instructions: [`PACKAGE-BUILDER.md`](./PACKAGE-BUILDER.md).
