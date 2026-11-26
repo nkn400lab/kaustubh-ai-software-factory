@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Prepare report directory
+        run: mkdir -p test-report
       - name: Set up Python
         if: inputs.project_type == 'static-html' || inputs.project_type == 'python'
         uses: actions/setup-python@v5
@@ -36,30 +38,42 @@ jobs:
       - name: Run static HTML validation
         if: inputs.project_type == 'static-html'
         run: |
-          python -m py_compile scripts/validate_factory_html.py
-          python scripts/validate_factory_html.py
+          set +e
+          python -m py_compile scripts/validate_factory_html.py 2>&1 | tee test-report/test-output.log
+          code=${PIPESTATUS[0]}
+          if [ $code -eq 0 ]; then python scripts/validate_factory_html.py 2>&1 | tee -a test-report/test-output.log; code=${PIPESTATUS[0]}; fi
+          echo $code > test-report/exit-code.txt
+          exit $code
       - name: Install Node dependencies
         if: inputs.project_type == 'node' && hashFiles('package-lock.json') != ''
         run: npm ci
       - name: Run Node tests
         if: inputs.project_type == 'node'
         run: |
-          node -e "const p=require('./package.json'); if(!p.scripts || !p.scripts.test) { console.log('No test script defined'); process.exit(2); }"
-          npm test
+          set +e
+          node -e "const p=require('./package.json'); if(!p.scripts || !p.scripts.test) { console.log('No test script defined'); process.exit(2); }" 2>&1 | tee test-report/test-output.log
+          code=${PIPESTATUS[0]}
+          if [ $code -eq 0 ]; then npm test 2>&1 | tee -a test-report/test-output.log; code=${PIPESTATUS[0]}; fi
+          echo $code > test-report/exit-code.txt
+          exit $code
       - name: Install Python dependencies
         if: inputs.project_type == 'python' && hashFiles('requirements.txt') != ''
         run: python -m pip install -r requirements.txt
       - name: Run Python unit tests
         if: inputs.project_type == 'python'
-        run: python -m unittest discover -v
+        run: |
+          set +e
+          python -m unittest discover -v 2>&1 | tee test-report/test-output.log
+          code=${PIPESTATUS[0]}
+          echo $code > test-report/exit-code.txt
+          exit $code
       - name: Write run report
         if: always()
         run: |
-          mkdir -p test-report
           echo 'Project test runner' > test-report/summary.txt
           echo 'Selected mode: ${{ inputs.project_type }}' >> test-report/summary.txt
           echo "Commit: $GITHUB_SHA" >> test-report/summary.txt
-          echo 'Inspect the job conclusion in the Actions UI.' >> test-report/summary.txt
+          echo 'See exit-code.txt and test-output.log for captured test results.' >> test-report/summary.txt
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
