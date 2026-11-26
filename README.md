@@ -68,3 +68,8 @@ Launch [`one-click-project-creator.html`](./one-click-project-creator.html) to t
 ## Factory Pipeline Orchestrator
 
 [`factory-pipeline-orchestrator.html`](./factory-pipeline-orchestrator.html) imports manifests, applies basic quality checks, generates CI workflow templates and release notes, and exports or sequentially publishes reviewed files. Guide: [`PIPELINE-ORCHESTRATOR.md`](./PIPELINE-ORCHESTRATOR.md). Checks are heuristic only; workflow templates may need adaptation.
+
+
+## AI Development Engine
+
+[`ai-development-engine.html`](./ai-development-engine.html) imports source text or manifests, produces AI change plans and revised file proposals, generates changelogs, and exports or publishes reviewed files. Guide: [`AI-DEVELOPMENT-ENGINE.md`](./AI-DEVELOPMENT-ENGINE.md). Proposed code is not executed or automatically tested.
