@@ -48,3 +48,8 @@ GitHub Actions workflow [`windows-factory-smoke.yml`](./.github/workflows/window
 ## Browser Testing & Repair Advisor
 
 Run [`browser-test-agent.html`](./browser-test-agent.html) to submit logs or snippets for Gemini diagnosis and a reviewed patch suggestion (it does not apply changes or execute code). Playwright smoke tests are in [`tests/browser-smoke.spec.js`](./tests/browser-smoke.spec.js), run by [`browser-test.yml`](./.github/workflows/browser-test.yml) on relevant pushes or manual dispatch. Details: [`BROWSER-TESTING.md`](./BROWSER-TESTING.md).
+
+
+## Auto Fix Engine
+
+Open [`auto-fix-engine.html`](./auto-fix-engine.html) to send pasted test logs and optional code/context to Gemini for a diagnosis and unified-diff patch proposal. Review and apply patches manually, then rerun CI. The prototype does not fetch logs, apply changes, execute code, or trigger builds. Guide: [`AUTO-FIX-ENGINE.md`](./AUTO-FIX-ENGINE.md).
