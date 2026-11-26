@@ -98,3 +98,8 @@ Open [ai-auto-repair-integration.html](./ai-auto-repair-integration.html) to ana
 ## AI Project Lifecycle Orchestrator
 
 Open [ai-project-lifecycle-orchestrator.html](./ai-project-lifecycle-orchestrator.html) to generate up to 12 starter files from a project brief, review/edit them, run basic manifest checks, export a JSON bundle and test plan, or optionally publish reviewed files sequentially to GitHub. It does not execute generated code or run tests. Gemini receives the brief; remove confidential data first. See [AI-PROJECT-LIFECYCLE-ORCHESTRATOR.md](./AI-PROJECT-LIFECYCLE-ORCHESTRATOR.md).
+
+
+## Central Brain — Unified Workspace
+
+Start at [central-brain.html](./central-brain.html) for a searchable launcher to all factory modules, a local project workspace, end-to-end workflow checklist, progress indicator, and JSON import/export. It is a control panel; it does not run code or tests in the background. See [CENTRAL-BRAIN.md](./CENTRAL-BRAIN.md).
