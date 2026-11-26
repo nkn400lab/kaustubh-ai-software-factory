@@ -1,0 +1,42 @@
+name: Windows Software Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: 'Name for the source package'
+        required: true
+        default: 'software-project'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Create source package
+        shell: pwsh
+        run: |
+          $name = "${{ github.event.inputs.package_name }}"
+          if ([string]::IsNullOrWhiteSpace($name)) { $name = "software-project" }
+          $safe = $name -replace '[^A-Za-z0-9._-]', '-'
+          $out = Join-Path $env:RUNNER_TEMP "$safe-source"
+          New-Item -ItemType Directory -Force -Path $out | Out-Null
+          Get-ChildItem -Path . -Force | Where-Object { $_.Name -ne '.git' -and $_.Name -ne '.github' } | ForEach-Object {
+            Copy-Item -Path $_.FullName -Destination $out -Recurse -Force
+          }
+          $zip = Join-Path $env:RUNNER_TEMP "$safe-source.zip"
+          Compress-Archive -Path (Join-Path $out '*') -DestinationPath $zip -Force
+          Write-Host "Package created at $zip"
+      - name: Upload source package
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-package
+          path: ${{ runner.temp }}/*-source.zip
+          if-no-files-found: error
+          retention-days: 7
